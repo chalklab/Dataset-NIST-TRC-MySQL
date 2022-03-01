@@ -1,4 +1,4 @@
-# Dataset NIST TRC MySQL
+# Dataset: NIST TRC ThermoML Data in MySQL
 This is a MySQL database populated with data from ThermoML (XML) files available at https://trc.nist.gov/ThermoML/.
 
 As part of an NSF project (ref) the set of ThermoML files created by the NIST Thermodynamics Research Center (TRC)
@@ -14,11 +14,13 @@ data modeling, and best practices for findable, interoperable, accessible, and r
   in other tables by using the primary key in a "foreign key field".  See also "foreign key constraints" below.
 
 
-SciData data model diagram
-Descriptions of fields in the database tables
-Discussion of foreign key constraints
-Discussion of ingestion script
-Discussion of data validation scripts
-Augmentation with additional metadata for compounds, systems, etc...
-Representation of numeric values discussion (from TRC data representation)
-Disclaimer
+### SciData data model diagram
+### Descriptions of fields in the database tables
+### Discussion of foreign key constraints
+### Discussion of ingestion script
+### Discussion of data validation scripts
+### Augmentation with additional metadata for compounds, systems, etc...
+### Representation of numeric values discussion (from TRC data representation)
+### Disclaimer
+### User Access
+The database contains one user account.  Username: admin, Password: password
