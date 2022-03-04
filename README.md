@@ -14,13 +14,22 @@ data modeling, and best practices for findable, interoperable, accessible, and r
   in other tables by using the primary key in a "foreign key field".  See also "foreign key constraints" below.
 
 
-### SciData data model diagram
-### Descriptions of fields in the database tables
-### Discussion of foreign key constraints
-### Discussion of ingestion script
-### Discussion of data validation scripts
-### Augmentation with additional metadata for compounds, systems, etc...
-### Representation of numeric values discussion (from TRC data representation)
-### Disclaimer
-### User Access
-The database contains one user account.  Username: admin, Password: password
+[//]: # (### SciData data model diagram)
+
+[//]: # (### Descriptions of fields in the database tables)
+
+[//]: # (### Discussion of foreign key constraints)
+
+[//]: # (### Discussion of ingestion script)
+
+[//]: # (### Discussion of data validation scripts)
+
+[//]: # (### Augmentation with additional metadata for compounds, systems, etc...)
+
+[//]: # (### Representation of numeric values discussion &#40;from TRC data representation&#41;)
+
+[//]: # (### Disclaimer)
+
+[//]: # (### User Access)
+
+[//]: # (The database contains one user account.  Username: admin, Password: password)
