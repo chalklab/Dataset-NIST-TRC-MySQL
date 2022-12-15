@@ -3,7 +3,7 @@
 Description: A join table of to link chemicals (samples of a chemical substance) and datasets via the `Component` element.  This is a convenience
 table to make it easier to access in scripts (datasets -> scidata).
 
-![Compound Section](../images/compound.png)
+![Compound Section](../images/thermoml/thermoml_example_compound.png)
 ![Component of PureOrMixtureData Element](../images/thermoml_chemicalsdataset.png)
 
 ## Fields

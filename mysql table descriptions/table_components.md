@@ -4,7 +4,7 @@ Description: Join table of chemicals in mixtures (a mixture is defined as the ch
 components defined in a `PureOrMixtureData` element). An additional field indicates the index
 of a (chemical) component as listed in a `PureOrMixtureData` element.
 
-![Compound Section](../images/compound.png)
+![Compound Section](../images/thermoml/thermoml_example_compound.png)
 ![Component of PureOrMixtureData Element](../images/thermoml_chemicalsdataset.png)
 
 ## Fields

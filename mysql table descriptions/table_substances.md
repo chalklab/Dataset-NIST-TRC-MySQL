@@ -7,5 +7,5 @@ of a ThermoML file (see below).  Data about the sample of chemical substance is 
 Additionally, chemical identifiers for substances are stored in a separate, identifiers table which is more efficient for
 storing data as adding fields for each different descriptor type often leads to a significant overhead of empty fields.
 
-![Compound Section](../images/compound.png)
+![Compound Section](../images/thermoml/thermoml_example_compound.png)
 
