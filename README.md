@@ -53,34 +53,32 @@ system (a pure substance or mixture of substances, akin to the `PureOrMixtureDat
 element in ThermoML) published in a research paper (`Citation` section in ThermoML). 
 Finally, in SciData there is also a section for methodology, how the research was 
 
-
 ### List of Database Tables
-
-- chemicals: 
-- chemicals_datasets 
-- components 
-- conditions 
-- data 
-- datapoints 
-- dataseries 
-- datasets 
-- files 
-- identifiers 
-- journals 
-- keywords 
-- mixtures 
-- phases 
-- phasetypes 
-- purificationsteps 
-- quantities 
-- quantitykinds 
-- references 
-- reports 
-- sampleprops 
-- substances 
-- substances_systems 
-- systems 
-- units
+- [chemicals](mysql_tables/table_chemicals.md): chemicals used in an experiment
+- [chemicals_datasets](mysql_tables/table_chemicals_datasets.md): a join table between the chemicals and datasets tables
+- [components](mysql_tables/table_components.md): components of a mixture studied in the research
+- [conditions](mysql_tables/table_conditions.md): experimental conditions of an experiment (including fixed conditions)
+- [data](mysql_tables/table_data.md): raw experimental data with quantities, values, uncertainties and units
+- [datapoints](mysql_tables/table_datapoints.md): abstract concept linking data conditions and data
+- [dataseries](mysql_tables/table_dataseries.md): abstract concept datapoints together (not spectral data)
+- [datasets](mysql_tables/table_datasets.md): abstract concept representing a set of data about a substance from a reference
+- [files](mysql_tables/table_files.md): capturing the metadata about the data files that hold the original data
+- [identifiers](mysql_tables/table_identifiers.md): identifiers of chemical substances
+- [journals](mysql_tables/table_journals.md): metadata about the journals in which the references are published
+- [keywords](mysql_tables/table_keywords.md): keywords describing important features of the data captured
+- [mixtures](mysql_tables/table_mixtures.md): representation of physical mixtures of chemicals
+- [phases](mysql_tables/table_phases.md): phases of matter of experimental solutions
+- [phasetypes](mysql_tables/table_phasetypes.md): representation of the different phase types
+- [purificationsteps](mysql_tables/table_purificationsteps.md): metadata about the steps by which chemicals have been purified
+- [quantities](mysql_tables/table_quantities.md): table of the quantities measured in the data
+- [quantitykinds](mysql_tables/table_quantitykinds.md): table of the quantitykinds that the quantities are instances of
+- [references](mysql_tables/table_references.md): metadata about the papers from which the data is reported
+- [reports](mysql_tables/table_reports.md): an abstract representation of the content of the data from a paper
+- [sampleprops](mysql_tables/table_sampleprops.md): information about the characteristics of chemicals (samples)
+- [substances](mysql_tables/table_substances.md): metadata about chemical substances
+- [substances_systems](mysql_tables/table_substances_systems.md): a join table between the substances and systems tables 
+- [systems](mysql_tables/table_systems.md): representation of abstract mixtures of substances
+- [units](mysql_tables/table_units.md): metadata about the units of measurements used to represent the data
 
 [//]: # (### Discussion of ingestion script)
 
@@ -90,8 +88,12 @@ Finally, in SciData there is also a section for methodology, how the research wa
 
 [//]: # (### Representation of numeric values discussion &#40;from TRC data representation&#41;)
 
-[//]: # (### Disclaimer)
+### User Access
+The database contains one user account.  Username: admin, Password: password)
 
-[//]: # (### User Access)
-
-[//]: # (The database contains one user account.  Username: admin, Password: password)
+### Disclaimer
+This work was completed independently of the creators of the NIST ThermoML dataset.  It was also done
+independently of the International Union of Pure and Applied Chemistry ([IUPAC](https://iupac.org/)) 
+and therefore does not have any endorsement from IUPAC, even though the developer is an active member 
+of the IUPAC and is currently a member of the IUPAC Committee on Publications and Cheminformatics 
+Data Standards ([CPCDS](https://iupac.org/body/024/)).
