@@ -5,17 +5,23 @@ and experiment was done.  In this context, there are two different types of cond
 - series conditions: conditions that are invariant across a `dataseries`, in ThermoML these are `Constraints`
 - (datum) conditions: conditions that vary across a `dataseries`, in ThermoML these are call `Variables`
 
-### 'Constraint' section in the ThermoML Schema
+### 'ConstraintVariable' section in the ThermoML Schema
 ![ThermoML Schema](../images/thermoml/thermoml_schema_constraint.jpg)
 
-### Example data of a '?' in the '?' section of a ThermoML file
+### Example data of a 'ConstraintVariableType' in the 'PureOrMixtureData' section of a ThermoML file
 ![ThermoML Example](../images/thermoml/thermoml_example_constraint.jpg)
 
-### MySQL '?' table structure
+### 'VariableValue' section in the ThermoML Schema
+![ThermoML Schema](../images/thermoml/thermoml_schema_numvalues.jpg)
+
+### Example data of a 'VariableValue' in the 'NumValues' section of a ThermoML file
+![ThermoML Example](../images/thermoml/thermoml_example_numvalues.jpg)
+
+### MySQL 'conditions' table structure
 ![MySQL Structure](../images/mysql/mysql_conditions.jpg)
 
 ### MySQL Fields
-* **id**: components primary key (auto-generated and unique)
+* **id**: conditions primary key (auto-generated and unique)
 * **dataset_id**: foreign key ([datasets table](table_datasets.md)) of the dataset the `dataseries` is part of
 * **dataseries_id**: foreign key ([dataseries table](table_dataseries.md)) of the `dataseries` the condition belongs to
 * **datapoint_id**: foreign key ([datapoints table](table_datapoints.md)) of the `datapoint` the condition belongs to
@@ -38,4 +44,4 @@ The dataset_id field was added as a convenience to allow statistics generation. 
 and conditions is:
 - `conditions` are linked to `datapoints` or `dataseries`
 - `datapoints` are linked to `dataseries`
-- `dataseries` are linked by `datasets`
+- `dataseries` are linked to `datasets`

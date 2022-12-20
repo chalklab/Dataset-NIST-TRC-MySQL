@@ -1,4 +1,3 @@
-## Dataset: NIST TRC ThermoML Data in MySQL
 This repository provides a MySQL database populated with data from ThermoML (XML) files 
 documented at https://trc.nist.gov/ThermoML/ and available at https://doi.org/10.18434/mds2-2422.
 

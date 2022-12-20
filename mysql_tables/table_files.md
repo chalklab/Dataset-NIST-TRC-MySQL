@@ -1,16 +1,17 @@
 # Table: files
 
-**Description**: Table of metadata about the ThermoML XML files from which the data is ingested
+**Description**: Metadata describing the ingested ThermoML files.
 
-### '?' section in the ThermoML Schema
-![ThermoML Schema](../images/thermoml/thermoml_schema_.png)
-
-### Example data of a '?' in the '?' section of a ThermoML file
-![ThermoML Example](../images/thermoml/thermoml_example_.png)
-
-### MySQL '?' table structure
-![MySQL Structure](../images/mysql/mysql_.png)
+### MySQL 'files' table structure
+![MySQL Structure](../images/mysql/mysql_files.jpg)
 
 ### MySQL Fields
-
-### Comments
+* **id**: files primary key (auto-generated and unique)
+* **trcid**: unique id created by using the data in the ThermoML `<TRCRefID>` section
+* **abstract**: abstract of the paper reported in the `<sAbstract>` field in the ThermoML file
+* **date**: the citation date of the paper reported in the `<dateCit>` field in the ThermoML file
+* **year**: the publication year of the paper reported in the `<yrPubYr>` field in the ThermoML file
+* **reference_id**: foreign key ([references table](table_references.md)) of the `reference` the dataset belongs to
+* **filename**: the name of the ThermoML file
+* **points**: number of datapoints in a file
+* **updated**: datetime last updated
