@@ -1,6 +1,11 @@
-This repository provides a MySQL database populated with data from ThermoML (XML) files 
-documented at https://trc.nist.gov/ThermoML/ and available at https://doi.org/10.18434/mds2-2422.
+This repository provides a MySQL database populated with data from ThermoML (XML) files documented at 
+https://trc.nist.gov/ThermoML/ and available at https://doi.org/10.18434/mds2-2422. The data available
+is three files:
+- [trcv2_cws](mysql/trcv2_cws.sql.zip): full database with crosswalk tables (only needed for conversion to JSON-LD)
+- [trcv2](mysql/trcv2.sql.zip): full database
+- [trcv2_model](mysql/trcv2_model.sql): empty database, data model only
 
+### Rationale
 As part of an [NSF project](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1835643) the set 
 of ThermoML files created by the NIST Thermodynamics Research Center (TRC) in Boulder, CO, USA 
 was ingested into a MySQL database as a stepping stone to subsequent conversion of the data 
@@ -17,7 +22,7 @@ ThermoML is an [International Union of Pure and Applied Chemistry (IUPAC) standa
 is available at https://trc.nist.gov/ThermoML.xsd and parts of the schema and how they relate
 to the MySQL data model can be seen on the pages for the different database tables [here](mysql_tables).
 
-### Important Features
+### Important Features of the Database
 * The acronym "[DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)", standing for
   "don't repeat yourself", is used as a mechanism to create the data model. That is, where 
   data or metadata can be abstracted into definitive,  unique entities (e.g., 
@@ -95,8 +100,8 @@ To enable interoperability of this data additional metadata has been added to ce
 - datasets table: a unique identifies was created from the `<TRCRefID/>` element data and the index of the 
 dataset in the XML file
 - identifiers table: chemical identifiers where added using scripts that requested data from the following sites
-  - https://commonchemistry.org: CAS Registry Number
-  - https://pubchem.ncbi.nlm.nih.gov/: IUPAC name, PubChem CID
+  - [https://commonchemistry.org](https://commonchemistry.org): CAS Registry Number
+  - [https://pubchem.ncbi.nlm.nih.gov](https://commonchemistry.org): IUPAC name, PubChem CID
 - journals table: all metadata was added by hand
 - quantitykinds: definitions and definition sources were added
 - substances table: molecular weights where added from [PubChem](https://pubchem.ncbi.nlm.nih.gov/) and
