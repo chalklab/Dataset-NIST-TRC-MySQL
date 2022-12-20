@@ -1,16 +1,15 @@
 # Table: chemicals_datasets
 
-**Description**: A join table of to link chemicals (samples of a chemical substance) and datasets via the `Component` element.  This is a convenience
-table to make it easier to access in scripts (datasets -> scidata).
+**Description**: A join table of to link chemicals (samples of a chemical substance) and datasets via the `Component` element.
 
-### '?' section in the ThermoML Schema
-![ThermoML Schema](../images/thermoml_chemicalsdataset.png)
+### 'Component' section in the ThermoML Schema
+![ThermoML Schema](../images/thermoml/thermoml_schema_component.jpg)
 
-### Example data of a '?' in the '?' section of a ThermoML file
-![ThermoML Example](../images/thermoml/thermoml_example_compound.png)
+### Example data of a 'Component' in the 'PureOrMixtureData' section of a ThermoML file
+![ThermoML Example](../images/thermoml/thermoml_example_components.png)
 
-### MySQL '?' table structure
-![MySQL Structure](../images/mysql/mysql_chemicals_datasets.png)
+### MySQL 'chemicals_datasets' table structure
+![MySQL Structure](../images/mysql/mysql_chemicals_datasets.jpg)
 
 ### MySQL Fields
 * **id**: chemicals_datasets primary key (auto-generated and unique)
@@ -19,3 +18,7 @@ table to make it easier to access in scripts (datasets -> scidata).
 * **updated**: datetime last updated
 
 ### Comments
+This table is a convenience table and not absolutely necessary. Formally, the link between chemicals and datasets is:
+- `datasets` are linked to `systems`
+- `systems` are joined to `substances` through `substances_systems`
+- `substances` are linked by `chemicals`

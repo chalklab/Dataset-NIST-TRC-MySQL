@@ -6,7 +6,7 @@ to regard them as 'instances' of a chemical substance, that is the chemical subs
 is an abstract representation and the chemical instances are what are physically tested/used 
 in a laboratory.
 
-### 'Compound' section in the ThermoML Schema
+### 'Sample' section in the ThermoML Schema
 
 ![ThermoML Schema](../images/thermoml/thermoml_schema_compound.jpg)
 
@@ -16,7 +16,7 @@ in a laboratory.
 
 ### MySQL 'compounds' table structure
 
-![MySQL_Structure](../images/mysql/mysql_compounds.jpg)
+![MySQL_Structure](../images/mysql/mysql_chemicals.jpg)
 
 ### MySQL Fields
 * **id**: chemicals primary key (auto-generated and unique)
@@ -27,5 +27,5 @@ in a laboratory.
 * **updated**: datetime last updated
 
 ### Comments
-Purity information for chemical samples is stored in the [`purifcationsteps` table](table_purifcationsteps.md) as the 
+Purity information for chemical samples is stored in the [`purifcationsteps`](table_purificationsteps.md) table as the 
 purification process can contain 1 to n purification steps.  Each step references an entry in the `chemicals` table.

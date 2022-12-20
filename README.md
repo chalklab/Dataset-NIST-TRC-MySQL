@@ -7,7 +7,7 @@ of ThermoML files created by the NIST Thermodynamics Research Center (TRC) in Bo
 was ingested into a MySQL database as a stepping stone to subsequent conversion of the data 
 into JSON-LD files in the [SciData framework](https://stuchalk.github.io/scidata/) format. This 
 dataset is made available as an example of translating an XML data model into a relational 
-database model, in this case implemented according to the SciData framework model.  It is 
+database model, in this case implemented according to the SciData framework.  It is 
 also used to exemplify the following tenets of good data management: data modeling, unique 
 identifiers (foreign keys in database tables) and best practices for findable, interoperable, 
 accessible, and reusable ([FAIR](https://www.go-fair.org/)) data.
@@ -16,13 +16,12 @@ accessible, and reusable ([FAIR](https://www.go-fair.org/)) data.
 ThermoML is an [International Union of Pure and Applied Chemistry (IUPAC) standard](https://iupac.org/what-we-do/digital-standards/thermoml/),
 (list of references included) for thermophysical property data.  The schema file for ThermoML 
 is available at https://trc.nist.gov/ThermoML.xsd and parts of the schema and how they relate
-to the MySQL data model can be seen on the pages for the different database tables [here](mysql%20table%20descriptions).
-
+to the MySQL data model can be seen on the pages for the different database tables [here](mysql_tables).
 
 ### Important Features
 * The acronym "[DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)", standing for
   "don't repeat yourself", is used as a mechanism to create the data model. That is, where 
-  data or metadata can be abstracted into definitive, concrete unique entities (e.g., 
+  data or metadata can be abstracted into definitive,  unique entities (e.g., 
   chemical substances) it is done once (in one table), given a unique id, a "primary key", 
   and referenced in other tables by using the primary key in a "foreign key" field.
 
@@ -30,8 +29,8 @@ to the MySQL data model can be seen on the pages for the different database tabl
   in relational databases are a way to ensure a higher level of integrity in the stored data. 
   As an example, in a table a set of unique entries for chemical `substances` is created.
   In another table, `identifiers` for those substances are captured, and in each record of an 
-  identifier a foreign key field points to the substance that identifier represents. Now, if 
-  at some point a substance entry is found to be a duplicate of another, it will be deleted 
+  identifier a foreign key field points to the substance that identifier identifies. Now, if 
+  at some point a `substances` table entry is found to be a duplicate of another, it will be deleted 
   from the `substances` table. However, any entries in the `identifiers` table pointing to that
   substance will remain, and point to a substance that no longer exists. This data is now 
   considered to be 'orphaned data', i.e., data that is not part of the data model. Creating a 
@@ -44,14 +43,15 @@ to the MySQL data model can be seen on the pages for the different database tabl
 ![foreign_key_example](images/mysql/mysql_fkeys.jpg)
 
 ### SciData Data Model
-![mysql_schema.jpg](images%2Fmysql%2Fmysql_schema.jpg)
+![mysql_schema.jpg](images/mysql/mysql_schema.jpg)
 The SciData data model for the TRC data is based off of the ThermoML schema and adds the 
-idea that data in each dataset can be general thought of as a (data)series of (data)points.
+idea that data in each dataset can be generally be thought of as a (data)series of (data)points.
 where each datapoint connects experimental conditions to an experimental datum. In the SciData
-framework there is also the concept that a dataset is a set of data about a chemical 
-system (a pure substance or mixture of substances, akin to the `PureOrMixtureData` 
-element in ThermoML) published in a research paper (`Citation` section in ThermoML). 
-Finally, in SciData there is also a section for methodology, how the research was 
+framework there is also the concept that a dataset is a set of data about a specific 
+system under study (in this case a pure substance or mixture of substances, akin to the 
+`PureOrMixtureData` element in ThermoML) published in a research paper (`Citation` section in ThermoML). 
+Finally, in SciData there is also a section for methodology, about how the research was done,
+but for this dataset no information has been included.
 
 ### List of Database Tables
 - [chemicals](mysql_tables/table_chemicals.md): chemicals used in an experiment
@@ -80,13 +80,29 @@ Finally, in SciData there is also a section for methodology, how the research wa
 - [systems](mysql_tables/table_systems.md): representation of abstract mixtures of substances
 - [units](mysql_tables/table_units.md): metadata about the units of measurements used to represent the data
 
-[//]: # (### Discussion of ingestion script)
+### Conversion and Validation
+The conversion of this dataset was accomplished using a CakePHP application available at 
+[SciData_TRC](https://github.com/ChalkLab/SciData_TRC). Validation of the data, by comparing the XML data
+to that in the database, was accomplished by additional PHP scripts in the same repository. See the repository
+for more information.
 
-[//]: # (### Discussion of data validation scripts)
+Internal validation of numeric data for conditions and experimental data was
+achieved by storing the original data from the XML file in a string field, and as separate significand, exponent and
+accuracy (significant digits) fields.  This avoids issues with the potential loss of trailing zeroes that can be a
+problem in code. See the [`conditions`](mysql_tables/table_conditions) and [`data`](mysql_tables/table_data) tables for details.
 
-[//]: # (### Augmentation with additional metadata for compounds, systems, etc...)
-
-[//]: # (### Representation of numeric values discussion &#40;from TRC data representation&#41;)
+### Augmentation with Additional Metadata
+To enable interoperability of this data additional metadata has been added to certain tables.  These are:
+- datasets table: a unique identifies was created from the `<TRCRefID/>` element data and the index of the 
+dataset in the XML file
+- identifiers table: chemical identifiers where added using scripts that requested data from the following sites
+  - https://commonchemistry.org: CAS Registry Number
+  - https://pubchem.ncbi.nlm.nih.gov/: IUPAC name, PubChem CID
+- journals table: all metadata was added by hand
+- quantitykinds: definitions and definition sources were added
+- substances table: molecular weights where added from [PubChem](https://pubchem.ncbi.nlm.nih.gov/) and
+classifications (type and subtype) were added from [Classyfire](http://classyfire.wishartlab.com/)
+- units table: encodings of units of measurement from the [QUDT](https://www.qudt.org/) vocabulary/ontology
 
 ### User Access
 The database contains one user account.  Username: admin, Password: password)
