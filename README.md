@@ -1,6 +1,6 @@
 This repository provides a MySQL database populated with data from ThermoML (XML) files documented at 
-https://trc.nist.gov/ThermoML/ and available at https://doi.org/10.18434/mds2-2422. The data available
-is three files:
+https://trc.nist.gov/ThermoML/ and available at https://doi.org/10.18434/mds2-2422. The data is available
+is:
 - [trcv2_cws](mysql/trcv2_cws.sql.zip): full database with crosswalk tables (only needed for conversion to JSON-LD)
 - [trcv2](mysql/trcv2.sql.zip): full database
 - [trcv2_model](mysql/trcv2_model.sql): empty database, data model only
