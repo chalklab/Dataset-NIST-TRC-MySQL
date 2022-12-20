@@ -1,16 +1,18 @@
 # Table: quantitykinds
 
-**Description**: 
+**Description**: The general quantitykind of quantities reported in the ThermoML files.  Note these are different
+from the groupings of properties in the ThermoML schema.  The groups are captured in the [quantities](table_quantities.md) table.
 
-### '?' section in the ThermoML Schema
-![ThermML Example](../images/thermoml/thermoml_schema_.png)
-
-### Example data of a '?' in the '?' section of a ThermoML file
-![ThermML Example](../images/thermoml/thermoml_example_.png)
-
-### MySQL '?' table structure
-![MySQL Structure](../images/mysql/mysql_.png)
+### MySQL 'quanititykinds' table structure
+![MySQL Structure](../images/mysql/mysql_quanititykinds.jpg)
 
 ### MySQL Fields
-
-### Comments
+* **id**: quantity primary key (auto-generated and unique)
+* **name**: the quantitykind name
+* **altname**: the alternate name of the quantitykind
+* **symbol**: the quantitykind symbol
+* **definition**: definition of the quantitykind
+* **source**: the source of the definition of the quantitykind
+* **si_unit**: foreign key ([units table](table_units.md)) of a standard unit for the quantitykind
+* **dimsymbol**: dimension symbol for the quantitykind
+* **updated**: datetime last updated
