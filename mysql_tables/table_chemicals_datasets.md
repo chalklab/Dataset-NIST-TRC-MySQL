@@ -1,6 +1,6 @@
 # Table: chemicals_datasets
 
-**Description**: A join table of to link chemicals (samples of a chemical substance) and datasets via the `Component` element.
+**Description**: A join table to link chemicals (samples of a chemical substance) and datasets via the `Component` element.
 
 ### 'Component' section in the ThermoML Schema
 ![ThermoML Schema](../images/thermoml/thermoml_schema_component.jpg)

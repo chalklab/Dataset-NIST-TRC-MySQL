@@ -1,16 +1,16 @@
-# Table: ?
+# Table: substances_systems
 
-**Description**:
+**Description**:  A join table to link chemical substances and the chemical systems they are part of.
 
-### '?' section in the ThermoML Schema
-![ThermoML Schema](../images/thermoml/thermoml_schema_.png)
-
-### Example data of a '?' in the '?' section of a ThermoML file
-![ThermoML Example](../images/thermoml/thermoml_example_.png)
-
-### MySQL '?' table structure
-![MySQL Structure](../images/mysql/mysql_.png)
+### MySQL 'substances_systems' table structure
+![MySQL Structure](../images/mysql/mysql_substances_systems.jpg)
 
 ### MySQL Fields
+* **id**: chemicals_datasets primary key (auto-generated and unique)
+* **substance_id**: foreign key ([substances table](table_substances.md)) linking a substance to a chemical system its part of
+* **system_id**: foreign key ([systems table](table_systems.md)) linking a system to one of its substances
+* **updated**: datetime last updated
 
 ### Comments
+A join table is needed where there is a many-to-many relationship between data in both tables.  In this case, each
+chemical substance can be part of many chemical systems and each chemical system can have many chemical substances.

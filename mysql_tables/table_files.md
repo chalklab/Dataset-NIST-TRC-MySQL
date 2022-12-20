@@ -15,3 +15,6 @@
 * **filename**: the name of the ThermoML file
 * **points**: number of datapoints in a file
 * **updated**: datetime last updated
+
+### Comments
+The number of files (11,825) is the same as the number of reports and references.
