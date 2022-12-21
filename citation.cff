@@ -1,9 +1,19 @@
-cff-version: 1.1.0
+cff-version: 1.2.0
+abstract: "This repository provides a MySQL database populated with data from ThermoML (XML) files available at https://doi.org/10.18434/mds2-2422."
 message: "If you use this software, please cite it as below."
 authors:
   - family-names: Stuart
     given-names: Chalk
     orcid: https://orcid.org/0000-0002-0703-7776
-title: ChalkLab/Dataset-NIST-TRC-MySQL: Initial Release
+title: "ChalkLab/Dataset-NIST-TRC-MySQL: Initial Release"
+keywords:
+  - MySQL
+  - ThermoML
+  - "NIST TRC"
+  - "Thermophysical data"
+identifiers:
+  - description: "Version 1.0 Initial Release"
+    type: doi
+    value: 10.5281/zenodo.123457
 version: v1.0
 date-released: 2022-12-21
