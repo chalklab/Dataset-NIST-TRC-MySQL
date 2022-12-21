@@ -1,9 +1,11 @@
+[![DOI](https://zenodo.org/badge/434001354.svg)](https://zenodo.org/badge/latestdoi/434001354)
+
 This repository provides a MySQL database populated with data from ThermoML (XML) files documented at 
-https://trc.nist.gov/ThermoML/ and available at https://doi.org/10.18434/mds2-2422. The data available
-is:
-- [trcv2_cws](mysql/trcv2_cws.sql.zip): full database with crosswalk tables (only needed for conversion to JSON-LD)
-- [trcv2](mysql/trcv2.sql.zip): full database
-- [trcv2_model](mysql/trcv2_model.sql): empty database, data model only
+https://trc.nist.gov/ThermoML/ and available at https://doi.org/10.18434/mds2-2422. The available files can be 
+downloaded from the links below (there is no need to clone the whole repository):
+- [trcv2_cws.sql.zip](mysql/trcv2_cws.sql.zip): full database plus crosswalk tables (29 tables)
+- [trcv2.sql.zip](mysql/trcv2.sql.zip): full database (26 tables)
+- [trcv2_model.sql](mysql/trcv2_model.sql): empty database, data model only (26 tables)
 
 ### Rationale
 As part of an [NSF project](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1835643) the set 
