@@ -18,7 +18,7 @@ ENV MYSQL_PASSWORD=trcpass
 # we 'add' the compressed (using gzip) SQL data file to the special folder 'docker-entrypoint-initdb.d'
 # when the image is created anything in this folder is processed automatically
 # in this case, the SQL file is copied, uncompressed, and then loaded into mysql as database 'trc' (see ENV above)
-ADD mysql/trcv2.sql.gz /docker-entrypoint-initdb.d
+ADD mysql/trcv2.sql /docker-entrypoint-initdb.d
 
 # this command disables some automated scripts not needed in this temporary build stage
 RUN ["sed", "-i", "s/exec \"$@\"/echo \"skipping...\"/", "/usr/local/bin/docker-entrypoint.sh"]
