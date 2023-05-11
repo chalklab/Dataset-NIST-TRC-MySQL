@@ -10,6 +10,7 @@ on:
 # set some environment variables
 env:
   REGISTRY: ghcr.io
+  REPO: trc_mysql
 
 # define a job to run
 # this takes the 'Dockerfile' file at the root level and builds the image it defines and then
@@ -43,4 +44,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ steps.extract_tag.outputs.tag_name }}
+        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/${{ steps.extract_tag.outputs.tag_name }}
