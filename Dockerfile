@@ -18,7 +18,7 @@ ENV MYSQL_PASSWORD=trcpass
 # we 'add' the compressed (using gzip) SQL data file to the special folder 'docker-entrypoint-initdb.d'
 # when the image is created anything in this folder is processed automatically
 # in this case, the SQL file is copied, uncompressed, and then loaded into mysql as database 'trc' (see ENV above)
-ADD mysql/trcv2.sql /docker-entrypoint-initdb.d
+ADD mysql/trcv2_mysql8.sql /docker-entrypoint-initdb.d
 
 # this command disables some automated scripts not needed in this temporary build stage
 RUN ["sed", "-i", "s/exec \"$@\"/echo \"skipping...\"/", "/usr/local/bin/docker-entrypoint.sh"]
@@ -41,7 +41,7 @@ RUN mv /data/* /var/lib/mysql/
 
 # if you have installed Docker Desktop (DD) on your computer (https://www.docker.com/products/docker-desktop/)
 # you can go to the command line, change directory to this folder, and run the following command to create the image
-# 'docker build -t dockerimage:latest .'
+# 'docker build -t dockerimage:latest .' OR 'docker build --platform linux/amd64 -t dockerimage:latest .' on Apple M1/M2
 # the image will then show up in DD under images and you can click 'Run' to try it out
 # (there is no need to enter anything in the dialog box that comes up) - this creates a container with a random name
 # to run commands, click 'Containers' in DD and then click on the container you see there
